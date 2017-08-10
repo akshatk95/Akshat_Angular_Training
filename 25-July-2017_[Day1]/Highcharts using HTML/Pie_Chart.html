@@ -1,0 +1,58 @@
+<html>
+<head>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<body>
+<script>
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Total Fruit Consumption'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+       pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Fruits',
+        colorByPoint: true,
+        data: [{
+            name: 'Bananas',
+            y: 56.425
+        }, {
+            name: 'Apples',
+            y: 24.98,
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Mangoes',
+            y: 10.02
+        }, {
+            name: 'Oranges',
+            y: 8.75
+        }]
+    }]
+});
+</script>
+</body>
+</head>
+</html>

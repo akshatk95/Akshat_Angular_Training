@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="formCtrl">
+  <form novalidate>
+    First Name:<br>
+    <input type="text" ng-model="student.fname"><br>
+    Last Name:<br>
+    <input type="text" ng-model="student.lname">
+    <br><br>
+    <button ng-click="reset()">RESET</button>
+  </form>
+  <p>student = {{student}}</p>
+  <p>default = {{default}}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('formCtrl', function($scope) {
+    $scope.default = {fname:"James", lname:"Bond"};
+    $scope.reset = function() {
+        $scope.student = angular.copy($scope.default);
+    };
+    $scope.reset();
+});
+</script>
+
+</body>
+</html>

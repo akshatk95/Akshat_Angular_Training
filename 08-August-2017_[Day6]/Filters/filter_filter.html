@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="namesCtrl">
+
+<p>Type the search words:</p>
+
+<p><input type="text" ng-model="search_term"></p>
+
+<ul>
+  <li ng-repeat="x in names | filter:search_term">
+    {{ x }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        'Jack',
+        'Jill',
+        'Stuart',
+        'Mark',
+        'Steve',
+        'Josh',
+        'Mitchell'
+    ];
+});
+</script>
+
+<p>The list will only consists of names matching the filter.</p>
+
+
+</body>
+</html>

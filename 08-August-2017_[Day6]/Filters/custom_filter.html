@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+<p>The following is an example of a custom filter. For all names in the list, the characters at even positions are in upper case while the characters at odd positions are in lower case.</p>
+<ul ng-app="myFilterExample" ng-controller="namesCtrl">
+<li ng-repeat="x in names">
+    {{x | myFilter}}
+</li>
+</ul>
+
+<script>
+var app = angular.module('myFilterExample', []);
+app.filter('myFilter', function() {
+    return function(x) {
+        var index, character, text = "";
+        for (index = 0; index < x.length; index++) {
+            character = x[index];
+            if (index % 2 == 0) {
+                character = character.toUpperCase();
+            }
+            if (index % 2 != 0) {
+                character = character.toLowerCase();
+            }
+            text += character;
+        }
+        return text;
+    };
+});
+app.controller('namesCtrl', function($scope) {
+    $scope.names = [
+        'Aman',
+        'Akshat',
+        'Anvay',
+        'Akshay',
+        'Nakul',
+        'Jai',
+        'Bhavesh',
+        'Mudit',
+        'Kshitij'
+        ];
+});
+</script>
+</body>
+</html>

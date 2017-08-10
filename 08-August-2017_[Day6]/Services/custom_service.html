@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+<div ng-app="myConverter" ng-controller="myHex">
+<h1>Converting a number to its hexadecimal equivalent:-</h1>
+<h3>The hexadecimal value of 137 is:</h3>
+
+<h2>{{hexadec}}</h2>
+
+</div>
+
+
+
+<script>
+var app = angular.module('myConverter', []);
+
+app.service('hexadec_convert', function() {
+    this.myFunc = function (x) {
+        return x.toString(16);
+    }
+});
+app.controller('myHex', function($scope, hexadec_convert) {
+  $scope.hexadec = hexadec_convert.myFunc(137);
+});
+</script>
+
+</body>
+</html>

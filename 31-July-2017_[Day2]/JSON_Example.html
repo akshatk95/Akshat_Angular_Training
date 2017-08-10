@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p id="p1"></p>
+<p id="p2"></p>
+<script>
+var txt="";
+var obj= {"obj1":{"name":"akshat","age":21},
+"obj2":{"name":"bodhi","age":20},
+"obj3":{"name":"chirag","age":22}};
+        txt += "<table border='1'>"
+        for (x in obj) {
+            txt += "<tr><td>" + obj[x].name + "</td><td>" + obj[x].age + "</td></tr>";
+        }
+        txt += "</table>" 
+        document.getElementById("p1").innerHTML = txt;
+txt="";        
+var cars={"car1":{"name":"Ford",model:["a","b","c"]},
+"car2":{"name":"Volkswagen",model:["d","e","f"]},
+"car3":{"name":"Maruti",model:["g","h","i"]}};
+    txt += "<table border='1'>"
+        for (x in cars) {
+            txt += "<tr><td>" + cars[x].name + "</td>";
+            for (y in cars[x].model){
+            	txt+="<td>" + cars[x].model[y] + "</td>";
+            }
+            txt+= "</tr>";
+        }
+        txt += "</table>" 
+        document.getElementById("p2").innerHTML = txt;
+</script>
+</body>
+</html>

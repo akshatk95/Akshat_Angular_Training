@@ -1,0 +1,101 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<div id="container"></div>
+
+<button id="large">Large</button>
+<button id="small">Small</button>
+<body>
+<script>
+var chart = Highcharts.chart('container', {
+
+    chart: {
+        type: 'column'
+    },
+
+    title: {
+        text: 'Highcharts responsive chart'
+    },
+
+    subtitle: {
+        text: 'Resize the frame or click buttons to change appearance'
+    },
+
+    legend: {
+            align: 'right',
+                  verticalAlign: 'middle',
+                             layout: 'vertical'
+    },
+
+    xAxis: {
+        categories: ['Apples', 'Oranges', 'Bananas','Mangoes'],
+        labels: {
+            x: -10
+        }
+    },
+
+    yAxis: {
+        allowDecimals: false,
+        title: {
+            text: 'Amount'
+        }
+    },
+
+    series: [{
+        "name": "A",
+        "data": [1, 4, 3, 2]
+    }, {
+        "name": "B",
+        "data": [6, 4, 2, 5]
+    }, {
+        "name": "C",
+        "data": [8, 4, 3, 2]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    layout: 'horizontal'
+                },
+                yAxis: {
+                    labels: {
+                        align: 'left',
+                        x: 0,
+                        y: -5
+                    },
+                    title: {
+                        text: null
+                    }
+                },
+                subtitle: {
+                    text: null
+                },
+                credits: {
+                    enabled: false
+                }
+            }
+        }]
+    }
+});
+
+$('#small').click(function () {
+    chart.setSize(400, 300);
+});
+
+$('#large').click(function () {
+    chart.setSize(600, 300);
+});
+
+</script>
+</body>
+</head>
+</html>
